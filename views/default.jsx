@@ -4,7 +4,7 @@ function Def (html) {
     return (
         <html>
             <head>
-                <title>Title</title>
+                <h1>Title</h1>
             </head>
             <body>
                 {html.childred}

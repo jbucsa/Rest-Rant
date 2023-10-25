@@ -34,7 +34,7 @@ app.engine('jsx', require('express-react-views').createEngine());
 app.use('/places.js', require('./controllers/places.js'));
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home.jsx');
 });
 
 app.get('*', (req, res) => {
