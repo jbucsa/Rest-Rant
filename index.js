@@ -24,11 +24,21 @@
 
 //10. Call app.listen(3000) to keep server open
 
-const express = require ('express')
-const app = express()
+require('dotenv').config();
+const express = require('express');
+const app = express();
 
-app.get('/', (req, res) =>{
-    res.send('Hello World!')
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine());
+
+app.use('/places', require('./controllers/places'));
+
+app.get('/', (req, res) => {
+  res.render('home');
 });
 
-app.listen(process.env.PORT)
+app.get('*', (req, res) => {
+  res.send('404 page');
+});
+
+app.listen(process.env.PORT);

@@ -1,4 +1,4 @@
-const React = require('react')
+const React = require('react');
 
 function Def (html) {
     return (
@@ -11,8 +11,8 @@ function Def (html) {
             </body>
         </html>
     )
-}
+};
 
 //Following code will export the Def function
-module.exports = Def
+module.exports = Def;
 
