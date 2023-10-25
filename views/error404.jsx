@@ -1,14 +1,15 @@
 const React = require('react');
 const Def = require('./default.jsx');
 
-function home(){
+function error404 () {
     return(
         <Def>
             <main>
-                <h1>Home</h1>
+                <h1>404: Page Not Found</h1>
+                <p>This Page was lost in the void!!!</p>
             </main>
         </Def>
     )
 };
 
-module.exports = home;
+module.exports = error404
