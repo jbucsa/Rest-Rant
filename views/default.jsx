@@ -4,13 +4,13 @@ function Def (html) {
     return (
         <html>
             <head>
-                <h1>Title</h1>
+                <title>Title</title>
             </head>
             <body>
-                {html.childred}
+                {html.children}
             </body>
         </html>
-    )
+    );
 };
 
 //Following code will export the Def function

@@ -27,18 +27,27 @@
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const path = require('path'); // Import the 'path' module to manage file paths
 
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
 
-app.use('/places.js', require('./controllers/places.js'));
+// Use the places.js route. Note the .".js" is not needed here. Changed places.js to places.jsx.
+app.use('/places', require('./controllers/places'));
 
 app.get('/', (req, res) => {
-  res.render('home.jsx');
+  res.render('home'); // Remove the '.jsx' extension from res.render calls as it's not necessary when using the view engine specified earlier. 
 });
 
 app.get('*', (req, res) => {
-  res.render('error404.jsx');
+  res.render('error404'); // Remove the '.jsx' extension from res.render calls as it's not necessary when using the view engine specified earlier. 
 });
 
-app.listen(process.env.PORT);
+
+const PORT = process.env.PORT || 2000; // Set a default port (e.g., 3000)
+//Added a default PORT value, in case the process.env.PORT is not set, and logged the port on which the server is running.
+//app.listen(process.env.PORT);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
