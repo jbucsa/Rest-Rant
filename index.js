@@ -36,7 +36,7 @@ app.use(express.static('public'));
 // Use the places.js route. Note the .".js" is not needed here. Changed places.js to places.jsx.
 app.use('/places', require('./controllers/places'));
 
-app.use('/new', require('./controllers/places'));
+app.use('/new', require('./controllers/new'));
 
 
 app.get('/', (req, res) => {
