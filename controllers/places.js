@@ -22,9 +22,12 @@ router.get('/', (req, res) => {
          }];
          
          // Render the 'places/index.jsx' view with the places data
-         res.render('places/index', { places })
-   });
+         res.render('places/index', {places})
+});
 
+router.get('/new', (req, res) => {
+  res.render('places/new')
+})
 
 
 
