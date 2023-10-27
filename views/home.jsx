@@ -6,6 +6,9 @@ function home(){
         <Def>
             <main>
                 <h1>Home</h1>
+                <div>
+                    <img src="/images/BeachLife.jpg" alt="Image of Beach Life" />
+                </div>
                 <a href="/places">
                 <button className="btn-primary">Places Page</button>
 </a>
