@@ -32,6 +32,10 @@ const path = require('path'); // Import the 'path' module to manage file paths
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
+
+app.use(express.urlencoded({ extended: true }))
+
+
 app.use(express.static('public'));
 // Use the places.js route. Note the .".js" is not needed here. Changed places.js to places.jsx.
 app.use('/places', require('./controllers/places'));
