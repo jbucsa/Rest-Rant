@@ -36,8 +36,6 @@ app.use(express.static('public'));
 // Use the places.js route. Note the .".js" is not needed here. Changed places.js to places.jsx.
 app.use('/places', require('./controllers/places'));
 
-app.use('/new', require('./controllers/new'));
-
 
 app.get('/', (req, res) => {
   res.render('home'); // Remove the '.jsx' extension from res.render calls as it's not necessary when using the view engine specified earlier. 
