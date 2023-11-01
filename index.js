@@ -24,20 +24,24 @@
 
 //10. Call app.listen(3000) to keep server open
 
+
+//Modules and Globals
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path'); // Import the 'path' module to manage file paths
+const methodOverride = require('method-override');
 
+//Express Settings
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine());
-
-app.use(express.urlencoded({ extended: true }))
-
-
-app.use(express.static('public'));
 // Use the places.js route. Note the .".js" is not needed here. Changed places.js to places.jsx.
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('method'));
+
+
 app.use('/places', require('./controllers/places'));
 
 
