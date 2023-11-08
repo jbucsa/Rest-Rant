@@ -6,3 +6,5 @@ node_modules/
 
 //Files to ignore within the views/places directory
 views/places/index_ChatGPT.jsx
+
+text.js
