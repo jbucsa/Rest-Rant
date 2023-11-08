@@ -7,7 +7,7 @@ function home(){
             <main>
                 <h1>REST-Rant</h1>
                 <div>
-                    <img src="/images/BeachLife.jpg" alt="Image of Beach Life" />
+                    <img src="/images/BeachLife.jpg" alt="Image of Beach Life" style={{width:150+'px', height:150+'px'}}/>
                 </div>
                 <a href="/places">
                 <button className="btn-primary">Places Page</button>
