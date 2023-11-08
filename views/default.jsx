@@ -11,15 +11,15 @@ function Def (html) {
             </head>
             <body>
             <nav style={{background_color:'cornflowerblue', padding: 10+'px'}}>
-                <ul style={{list_style_type: 'none', margin: 0}}>
-                    <li style={{display: 'inline', list_style_type:'none', margin: 0}}>
-                        <a href="/" style={{  display: 'block', color: 'black', text_align: 'center', padding: 14+'px', text_decoration: 'none', font_size: 1+'em'}}>Home</a>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
                     </li>
-                    <li style={{ display: 'inline', list_style_type: 'none', margin: 0}}>
-                        <a href="/places" style={{  display: 'block', color: 'black', text_align: 'center', padding: 14+'px', text_decoration: 'none', font_size: 1+'em'}}>Places</a>
+                    <li class="nav-item">
+                        <a href="/places" class="nav-link">Places</a>
                     </li>
-                    <li style={{display: 'inline', list_style_type: 'none', margin: 0}}>
-                        <a href="/places/new" style={{  display: 'block', color: 'black', text_align: 'center', padding: 14+'px', text_decoration: 'none', font_size: 1+'em'}}>Add Place</a>
+                    <li class="nav-item">
+                        <a href="/places/new" class="nav-link">Add Place</a>
                     </li>
                 </ul>
             </nav>
