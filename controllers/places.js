@@ -15,13 +15,29 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
+  if (!req.body.pic) {
+    //Default image if one is not found
+    req.body.pic = './public/images/BeachLife.jpg'
+  }
+
   db.Place.create(req.body)
   .then(() => {
     res.redirect('/places')
   })
   .catch(err => {
-    console.log('err', err)
-    res.render('errer404')
+    if (err && err.name == 'ValidationError'){
+      let message = 'Validation Error: '
+      for (var field in err.errors){
+        message += `${field} was ${err.errors[field].value}. `
+        massage += `${err.errors[field].message}` 
+      }
+      console.log('Validation error message', message)
+      // TODO: Generate error message
+      res.render('/places/new', {message})
+    }
+    else {
+      res.render('errer404')
+    }
   })
 });
 

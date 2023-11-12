@@ -9,6 +9,14 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+  let message = ''
+    if (data.message){
+      message = (
+        <h4 className="alert-danger">
+          {data.message}
+        </h4>
+      )
+    }
     return (
         <Def>
           <main>
@@ -17,6 +25,7 @@ function show (data) {
                 <img src={data.place.pic} alt={data.place.name} />
                 <h3>
                   Located in {data.place.city}, {data.place.state}
+                  {message}
                 </h3>
               </div>
               <div className="col-sm-6">
