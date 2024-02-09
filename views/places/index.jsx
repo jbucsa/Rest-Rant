@@ -2,29 +2,35 @@ const React = require('react');
 const Def = require('../default');
 
 // Define another React component
-function index(data) {
+function index (data) {
   let placesFormatted = data.places.map((place) => {
     return (
-    <div className="col-sm-6">
-      <h2>
-        <a href={`/places/${place.id}`} >{place.name}</a>
-      </h2>
-      <p className="text-left">{place.cuisines}</p>
-      <img src={place.pic} alt={place.name} style={{width:150+'px', height:150+'px'}}/>
-      <p className="text-left">Located in {place.city}, {place.state}</p>
-    </div>
-  )})
-
+      <div className="col-sm-6">
+        <h2>
+          <a href={`/places/${place.id}`} >
+            {place.name}
+          </a>
+        </h2>
+        <p className="text-center">
+          {place.cuisines}
+        </p>
+        <img src={place.pic} alt={place.name} />
+        <p className="text-center">
+          Located in {place.city}, {place.state}
+        </p>
+      </div>
+    )
+  })
   return (
     <Def>
-      <main>
-        <h1>PLACES INDEX PAGE</h1>
-        <div className="row">
-          {placesFormatted}
-        </div>
-      </main>
+        <main>
+            <h1>Places to Rant or Rave About</h1>
+            <div className="row">
+              {placesFormatted}
+            </div>
+        </main>
     </Def>
-  );
+  )
 }
 
 

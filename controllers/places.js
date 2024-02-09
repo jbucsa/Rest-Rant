@@ -93,51 +93,47 @@ router.post('/:id/comment', (req, res) => {
 
 //PUT Route for Edit: put the user's edits back into our places array
 router.put('/:id', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+      res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+      console.log('err', err)
       res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-      // // Dig into req.body and make sure data is valid
-      // if (!req.body.pic) {
-      //     // Default image if one is not provided
-      //     req.body.pic = 'http://placekitten.com/400/400'
-      // }
-      // if (!req.body.city) {
-      //     req.body.city = 'Anytown'
-      // }
-      // if (!req.body.state) {
-      //     req.body.state = 'USA'
-      // }
-      res.render(`places/show`, {place: places[id], id})
-      // Save the new data into places[id]
-      // places[id] = req.body
-      res.redirect(`/places/show`)
-  }
+  })
 })
 
 
+//Delete Routes
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub');
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
+})
+
+
+router.delete('/:id/rant/:rantId', (req, res) => {
+  res.send('GET /places/:id/rant/:rantId STUB');
 });
+
+
 
 //Edit Page Route
 router.get('/:id/edit', (req, res) => {
-  let id = Number(req.params.id)
-  if (isNaN(id)) {
+
+  db.Place.findById(req.params.id)
+  .then(place => {
+      res.render('places/edit', { place })
+  })
+  .catch(err => {
       res.render('error404')
-  }
-  else if (!places[id]) {
-      res.render('error404')
-  }
-  else {
-      // console.log(places[id])
-      res.render('places/edit', { place: places[id], id })
-  }
-});
+  })
+})
 
 
 router.post('/:id/rant', (req, res) => {
@@ -151,8 +147,5 @@ router.post('/:id/rant', (req, res) => {
   })
 });
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub');
-});
 
 module.exports = router;
