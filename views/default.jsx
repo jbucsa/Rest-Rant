@@ -11,15 +11,15 @@ function Def (html) {
             </head>
             <body>
             <nav style={{background_color:'cornflowerblue', padding: 10+'px'}}>
-                <ul class="nav nav-tabs">
-                    <li class="nav-item">
-                        <a href="/" class="nav-link">Home</a>
+                <ul className="nav nav-tabs">
+                    <li className="nav-item">
+                        <a href="/" className="nav-link">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/places" class="nav-link">Places</a>
+                    <li className="nav-item">
+                        <a href="/places" className="nav-link">Places</a>
                     </li>
-                    <li class="nav-item">
-                        <a href="/places/new" class="nav-link">Add Place</a>
+                    <li className="nav-item">
+                        <a href="/places/new" className="nav-link">Add Place</a>
                     </li>
                 </ul>
             </nav>
