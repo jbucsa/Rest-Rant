@@ -5,9 +5,11 @@ const app = express();
 const path = require('path'); // Import the 'path' module to manage file paths
 const methodOverride = require('method-override');
 
+
+
 //Express Settings
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jsx');
+
+app.set('view engine', 'jsx', 'views', __dirname + '/views');
 app.engine('jsx', require('express-react-views').createEngine());
 
 
@@ -17,8 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('method'));
 
 
+// Controllers & Routes
 app.use('/places', require('./controllers/places'));
-
 
 app.get('/', (req, res) => {
   res.render('home'); // Remove the '.jsx' extension from res.render calls as it's not necessary when using the view engine specified earlier. 
@@ -32,6 +34,8 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 2000; // Set a default port (e.g., 3000)
 //Added a default PORT value, in case the process.env.PORT is not set, and logged the port on which the server is running.
 //app.listen(process.env.PORT);
+
+// Listen for Connections
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
