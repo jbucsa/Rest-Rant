@@ -20,7 +20,7 @@ app.use(methodOverride('method'));
 
 
 // Controllers & Routes
-app.use('/places', require('./controllers/places'));
+app.use('/places', require('./seeders/controllers/places'));
 
 app.get('/', (req, res) => {
   res.render('home'); // Remove the '.jsx' extension from res.render calls as it's not necessary when using the view engine specified earlier. 
