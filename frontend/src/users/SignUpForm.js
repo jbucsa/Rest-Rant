@@ -2,19 +2,15 @@ import { useState, useEffect } from "react"
 import { useHistory, useParams } from "react-router"
 
 function SignUpForm() {
-
 	const history = useHistory()
-
 	const [user, setUser] = useState({
 		firstName: '',
 		lastName: '',
 		email: '',
 		password: ''
 	})
-
 	async function handleSubmit(e) {
 		e.preventDefault()
-
 		await fetch(`http://localhost:5000/users/`, {
 			method: 'POST',
 			headers: {
@@ -22,7 +18,6 @@ function SignUpForm() {
 			},
 			body: JSON.stringify(user)
 		})
-
 		history.push(`/`)
 	}
 
@@ -65,6 +60,18 @@ function SignUpForm() {
 							className="form-control"
 							id="email"
 							name="email"
+						/>
+					</div>
+					<div className="col-sm-6 form-group">
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							required
+							value={user.password}
+							onChange={e => setUser({ ...user, password: e.target.value })}
+							className="form-control"
+							id="password"
+							name="password"
 						/>
 					</div>
 				</div>
